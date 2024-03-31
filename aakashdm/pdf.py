@@ -4,6 +4,9 @@ import tqdm
 
 
 def download_pdf(url: str, save_file: str, title: str):
+    DESC_LENGTH = 20
+    if len(title) > DESC_LENGTH:
+        title = title[:18] + "..."
     with requests.get(url, stream=True) as s, open(save_file, "wb") as f:
         size = s.headers.get("content-length")
         chunk_size = 2 * 1024 * 1024
