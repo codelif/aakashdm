@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "aakashdm"
-version = "0.1.0"
+version = "0.2.0"
 description = "Download and remove DRM from Aakash Target PDFs"
 authors = ["Harsh Sharma <goharsh007@gmail.com>"]
 license = "MIT License"
