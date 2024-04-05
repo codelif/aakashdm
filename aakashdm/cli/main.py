@@ -1,8 +1,8 @@
-import os
-from aakashdm import PROG, __version__
-from aakashdm.cli.sessions import sessions
-from aakashdm.cli.downloader import download
 import click
+
+from aakashdm import PROG, __version__
+from aakashdm.cli.downloader import download
+from aakashdm.cli.sessions import sessions
 
 
 @click.group(PROG)

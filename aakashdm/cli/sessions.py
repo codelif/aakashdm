@@ -1,11 +1,12 @@
 import click
+from myaakash import SessionService
+
 import aakashdm.sessionizer
-from myaakash import MyAakash
 
 
 @click.group("sessions")
 def sessions():
-    """Manage MyAakash Sessions"""
+    """Manage SessionService Sessions"""
 
 
 @sessions.command("list")
@@ -42,12 +43,12 @@ def add_session(psid: str, password: str):
         if confirm != "y":
             click.echo("Session creation aborted!")
             return
-        aakash = MyAakash()
+        aakash = SessionService()
         aakash.token_login(session["tokens"])
         aakash.logout()
         del aakash
 
-    aakash = MyAakash()
+    aakash = SessionService()
     aakash.login(psid, password)
     aakashdm.sessionizer.save_session(aakash)
     click.echo("Session with PSID '%s' successfully created." % psid)

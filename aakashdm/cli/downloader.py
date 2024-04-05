@@ -1,11 +1,13 @@
-from collections.abc import Callable, Iterable
-import click
-from myaakash import MyAakash
-import aakashdm.sessionizer
-import aakashdm.pdf
-import sys
 import base64
 import os
+import sys
+from collections.abc import Callable
+
+import click
+from myaakash import SessionService
+
+import aakashdm.pdf
+import aakashdm.sessionizer
 
 
 @click.group("download")
@@ -47,7 +49,9 @@ def prepare_session_choice(key: dict, sessions: dict):
 
 @download.command("interactive")
 def book_download():
-    print("Welcome to one-of-a-kind MyAakash Assets Downloader! Sail the Low Seas...\n")
+    print(
+        "Welcome to one-of-a-kind SessionService Assets Downloader! Sail the Low Seas...\n"
+    )
     sessions = aakashdm.sessionizer.get_sessions()
 
     if sessions:
@@ -60,7 +64,7 @@ def book_download():
         )
         sys.exit(1)
 
-    myaakash = MyAakash()
+    myaakash = SessionService()
     myaakash.token_login(session["tokens"])
     aakashdm.sessionizer.save_session(myaakash)
 
@@ -96,7 +100,9 @@ def book_download():
 
 @download.command("bulk")
 def bulk_download():
-    print("Welcome to one-of-a-kind MyAakash Assets Downloader! Sail the Low Seas...\n")
+    print(
+        "Welcome to one-of-a-kind SessionService Assets Downloader! Sail the Low Seas...\n"
+    )
     sessions = aakashdm.sessionizer.get_sessions()
 
     if sessions:
@@ -109,7 +115,7 @@ def bulk_download():
         )
         sys.exit(1)
 
-    myaakash = MyAakash()
+    myaakash = SessionService()
     myaakash.token_login(session["tokens"])
     aakashdm.sessionizer.save_session(myaakash)
 

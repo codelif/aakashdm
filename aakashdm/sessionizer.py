@@ -1,7 +1,8 @@
-from myaakash import MyAakash
-from aakashdm.utils import get_token_file
-import os
 import json
+
+from myaakash import SessionService
+
+from aakashdm.utils import get_token_file
 
 TOKEN_PATH = get_token_file()
 
@@ -26,7 +27,7 @@ def get_session(psid: str) -> dict:
     return {}
 
 
-def save_session(myaakash: MyAakash) -> bool:
+def save_session(myaakash: SessionService) -> bool:
     if not myaakash.logged_in:
         return False
 
