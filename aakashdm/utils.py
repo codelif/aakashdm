@@ -20,6 +20,8 @@ def get_user_data_folder(make_folder: bool = True) -> str:
             user_data = os.path.expanduser("~/.local/share")
     elif system == "windows":
         user_data = os.environ["APPDATA"]
+    else:
+        user_data = os.path.expanduser("~/")
 
     user_data = os.path.join(user_data, PROG)
     if make_folder:

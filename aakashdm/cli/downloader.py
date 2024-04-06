@@ -10,9 +10,9 @@ import aakashdm.pdf
 import aakashdm.sessionizer
 
 
-@click.group("download")
-def download():
-    """Download Manager for MyAakash Assets"""
+@click.group("targets")
+def targets():
+    """Downloads for Aakash Targets/Books"""
 
 
 def choose(options: list, desc: str, extractor: Callable, args=[]) -> int:
@@ -47,7 +47,7 @@ def prepare_session_choice(key: dict, sessions: dict):
     return f"NAME: {name}\nPSID: {psid}"
 
 
-@download.command("interactive")
+@targets.command("interactive")
 def book_download():
     print(
         "Welcome to one-of-a-kind SessionService Assets Downloader! Sail the Low Seas...\n"
@@ -59,7 +59,7 @@ def book_download():
         choice = choose(keys, "Session", prepare_session_choice, (sessions,))
         session = sessions[keys[choice]]
     else:
-        print(
+        click.echo(
             "No active session found. Please add session with the command 'aakashdm session add'."
         )
         sys.exit(1)
@@ -98,7 +98,7 @@ def book_download():
     aakashdm.pdf.deDRM_pdf(os.path.basename(url), pdf_pswd)
 
 
-@download.command("bulk")
+@targets.command("bulk")
 def bulk_download():
     print(
         "Welcome to one-of-a-kind SessionService Assets Downloader! Sail the Low Seas...\n"

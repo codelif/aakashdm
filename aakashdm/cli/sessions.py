@@ -6,7 +6,7 @@ import aakashdm.sessionizer
 
 @click.group("sessions")
 def sessions():
-    """Manage SessionService Sessions"""
+    """Manage MyAakash Sessions"""
 
 
 @sessions.command("list")
