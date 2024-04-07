@@ -32,6 +32,7 @@ class QuestionsDB:
         self.__setup_database()
 
     def __del__(self) -> None:
+        self.cur.fetchall()
         self.cur.close()
         self.conn.close()
 

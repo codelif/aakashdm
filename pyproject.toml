@@ -19,6 +19,7 @@ myaakash = { git = "https://github.com/codelif/myaakash", branch = "master"}
 pikepdf = "^8.13.0"
 click = "^8.1.7"
 tqdm = "^4.66.2"
+flask = "^3.0.2"
 
 
 [build-system]
