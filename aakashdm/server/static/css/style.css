@@ -88,6 +88,10 @@ span.question  span {
 
 sl-button::part(base) {
   justify-content: left;
+}
+
+sl-button {
   width:100%; 
   overflow: auto
+
 }
